@@ -1,0 +1,23 @@
+.box-container {
+  border: 2px solid #e0e0e0;
+  background-color: #ffffff;
+  padding: 24px;
+  min-height: 120px;
+  margin-top: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  max-width: 700px;
+  transition: all 0.3s ease-in-out;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 1rem;
+  position: relative;
+
+justify-self: center;  
+}
+
+.box-content {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+  margin: 1rem;
+}
