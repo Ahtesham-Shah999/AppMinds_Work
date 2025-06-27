@@ -1,0 +1,79 @@
+
+#player-info { 
+  background-color: rgba(0, 0, 0, 0.7); /* translucent black */ 
+  color: #fff; 
+  padding: 1.5rem 2rem; 
+  border-radius: 16px; 
+  max-width: 900px; 
+  margin: 2rem auto; /* horizontally center */ 
+  text-align: center; 
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); 
+  font-family: 'Segoe UI', sans-serif; 
+} 
+
+.player-name { 
+  font-weight: bold; 
+  margin-right: 1rem; 
+  color: #f5f5dc; /* cream tone */ 
+} 
+
+.player-name input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  color: #f5f5dc;
+  font-weight: bold;
+  font-family: inherit;
+}
+
+.player-name input:focus {
+  outline: none;
+  border-color: #8b5e3c;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.player-symbol { 
+  background-color: #8b5e3c; /* warm wood color */ 
+  color: #fff; 
+  padding: 0.2rem 0.6rem; 
+  border-radius: 8px; 
+  font-weight: bold; 
+  font-size: 1rem; 
+  margin-right: 1rem;
+} 
+
+.player-item { 
+  background-color: #222; 
+  color: white; 
+  padding: 1rem; 
+  margin: 0.5rem auto; 
+  border-radius: 12px; 
+  text-align: center; 
+  width: 300px; 
+  list-style: none; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} 
+
+.btn {
+  background-color: #8b5e3c;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #a0704a;
+}
+
+.btn:active {
+  background-color: #6d4a2f;
+}
+

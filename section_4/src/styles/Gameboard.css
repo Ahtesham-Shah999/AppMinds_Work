@@ -1,0 +1,421 @@
+/* Keyframe animations */
+@keyframes slideUpFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 32px rgba(139, 94, 60, 0.4), 0 0 20px rgba(139, 94, 60, 0.2);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Main containers with slide-up animation */
+#player-info { 
+  background-color: rgba(0, 0, 0, 0.7); 
+  color: #fff; 
+  padding: 1.5rem 2rem; 
+  border-radius: 16px; 
+  max-width: 400px; 
+  margin: 2rem auto; 
+  text-align: center; 
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); 
+  font-family: 'Segoe UI', sans-serif;
+  
+  /* Animation properties */
+  animation: slideUpFromBottom 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+  transform: translateY(100px);
+} 
+
+.player-name { 
+  font-weight: bold; 
+  margin-right: 1rem; 
+  color: #f5f5dc; 
+  animation: fadeInScale 0.6s ease-out forwards;
+  animation-delay: 0.8s;
+  opacity: 0;
+} 
+
+.player-name input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  color: #f5f5dc;
+  font-weight: bold;
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.player-name input:focus {
+  outline: none;
+  border-color: #8b5e3c;
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.2);
+}
+
+.player-symbol { 
+  background-color: #8b5e3c; 
+  color: #fff; 
+  padding: 0.2rem 0.6rem; 
+  border-radius: 8px; 
+  font-weight: bold; 
+  font-size: 1rem; 
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+  animation: bounceIn 0.6s ease-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
+} 
+
+.player-symbol:hover {
+  transform: scale(1.1) rotate(5deg);
+  background-color: #a0704a;
+  box-shadow: 0 4px 12px rgba(139, 94, 60, 0.4);
+}
+
+.player-item { 
+  background-color: #222; 
+  color: white; 
+  padding: 1rem; 
+  margin: 0.5rem auto; 
+  border-radius: 12px; 
+  text-align: center; 
+  width: 300px; 
+  list-style: none; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideUpFromBottom 0.6s ease-out forwards;
+  animation-delay: calc(1.2s + var(--item-index, 0) * 0.1s);
+  opacity: 0;
+  transform: translateY(50px);
+} 
+
+.player-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  background-color: #333;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.btn {
+  background-color: #8b5e3c;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover {
+  background-color: #a0704a;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(139, 94, 60, 0.4);
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:active {
+  background-color: #6d4a2f;
+  transform: translateY(0) scale(0.98);
+  transition-duration: 0.1s;
+}
+
+.gameboard {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 16px;
+  max-width: 500px;
+  margin: 5.5rem auto;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  font-family: 'Segoe UI', sans-serif;
+  height: 24rem;
+  
+  /* Animation properties */
+  animation: slideUpFromBottom 1s ease-out forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.gameboard h2 {
+  margin-bottom: 1.5rem;
+  color: #f5f5dc;
+  font-size: 1.4rem;
+  font-weight: bold;
+  animation: fadeInScale 0.8s ease-out forwards;
+  animation-delay: 1.2s;
+  opacity: 0;
+}
+
+.board-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  animation: slideUpFromBottom 0.6s ease-out forwards;
+  animation-delay: calc(1.4s + var(--row-index, 0) * 0.1s);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.board-row:last-child {
+  margin-bottom: 0;
+}
+
+.board-cell {
+  width: 80px;
+  height: 80px;
+  background-color: #333;
+  border: 2px solid #8b5e3c;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  margin: 0.25rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.board-cell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(139, 94, 60, 0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.board-cell:hover {
+  background-color: #444;
+  border-color: #a0704a;
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 8px 25px rgba(139, 94, 60, 0.3);
+}
+
+.board-cell:hover::before {
+  transform: translateX(100%);
+}
+
+.board-cell:active {
+  transform: scale(0.98);
+  background-color: #555;
+  transition-duration: 0.1s;
+}
+
+.board-cell.filled {
+  animation: bounceIn 0.5s ease-out forwards;
+}
+
+#playersdetail { 
+  display: flex; 
+  justify-content: space-around; 
+  align-items: center; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 1rem 2rem; 
+  border-radius: 12px; 
+  max-width: 700px; 
+  margin: -5rem auto; 
+  color: #fff; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
+  font-family: 'Segoe UI', sans-serif;
+  
+  /* Animation properties */
+  animation: slideUpFromBottom 0.8s ease-out forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+  transform: translateY(80px);
+}
+
+#start-btn {
+  background-color: #8b5e3c;
+  width: 15rem;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 2rem auto;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  overflow: hidden;
+  
+  /* Animation properties */
+  animation: slideUpFromBottom 1.2s ease-out forwards, pulseGlow 2s ease-in-out infinite;
+  animation-delay: 1.8s, 3s;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+#start-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+#start-btn:hover {
+  background-color: #a0704a;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(139, 94, 60, 0.5);
+}
+
+#start-btn:hover::before {
+  left: 100%;
+}
+
+#start-btn:active {
+  background-color: #6d4a2f;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition-duration: 0.1s;
+}
+
+/* Utility classes for staggered animations */
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+.animate-delay-5 { animation-delay: 0.5s; }
+
+/* Loading state animations */
+.loading {
+  position: relative;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 2s infinite;
+}
+
+/* Responsive animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Additional smooth micro-interactions */
+* {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus states for accessibility */
+*:focus-visible {
+  outline: 2px solid #8b5e3c;
+  outline-offset: 2px;
+}
+
+/* Hover effects for better UX */
+.interactive:hover {
+  cursor: pointer;
+}
+
+/* Success/error state animations */
+.success {
+  animation: bounceIn 0.6s ease-out forwards;
+}
+
+.error {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
